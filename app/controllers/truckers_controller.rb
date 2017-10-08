@@ -10,6 +10,8 @@ class TruckersController < ApplicationController
   # GET /truckers/1
   # GET /truckers/1.json
   def show
+    @trucker = Trucker.find(params[:id])
+    render json: @trucker, adapter: :json
   end
 
   # GET /truckers/new
@@ -69,6 +71,8 @@ class TruckersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trucker_params
-      params.require(:trucker).permit(:name, :phone)
+      params[:trucker][:vehicle_attributes] = [params[:trucker][:vehicle]]
+      params.require(:trucker).delete :vehicle
+      params.require(:trucker).permit(:name, :phone, vehicle_attributes: [:body_type, :type,:board])
     end
 end

@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module TruckApi
   class Application < Rails::Application
+    ActiveModel::Serializer.config.adapter = :json_api
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
