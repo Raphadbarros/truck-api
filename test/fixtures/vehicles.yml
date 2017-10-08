@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  body_type: MyString
+  trucker: one
+
+two:
+  type: 
+  body_type: MyString
+  trucker: two

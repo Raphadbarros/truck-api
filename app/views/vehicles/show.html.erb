@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @vehicle.type %>
+</p>
+
+<p>
+  <strong>Body type:</strong>
+  <%= @vehicle.body_type %>
+</p>
+
+<p>
+  <strong>Trucker:</strong>
+  <%= @vehicle.trucker %>
+</p>
+
+<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
+<%= link_to 'Back', vehicles_path %>

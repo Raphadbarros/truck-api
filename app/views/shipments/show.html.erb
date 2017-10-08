@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @shipment.value %>
+</p>
+
+<p>
+  <strong>Weight kg:</strong>
+  <%= @shipment.weight_kg %>
+</p>
+
+<%= link_to 'Edit', edit_shipment_path(@shipment) %> |
+<%= link_to 'Back', shipments_path %>
