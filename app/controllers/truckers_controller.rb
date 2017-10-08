@@ -5,6 +5,15 @@ class TruckersController < ApplicationController
   # GET /truckers.json
   def index
     @truckers = Trucker.all
+    
+    #teste = {trucker: {name: "Lincoln Falcão", phone: "(11) 97654-3210", vehicles_attributes: [{body_type: "Baú", type: "Truck"}]}}
+   # byebug
+   # puts teste
+    #@trucker = Trucker.new(teste[:trucker])
+    #@trucker.save
+    #@truckers = Trucker.all
+    render json: @truckers, adapter: :json
+
   end
 
   # GET /truckers/1
@@ -26,6 +35,7 @@ class TruckersController < ApplicationController
   # POST /truckers
   # POST /truckers.json
   def create
+    byebug
     @trucker = Trucker.new(trucker_params)
 
     respond_to do |format|
@@ -71,8 +81,9 @@ class TruckersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trucker_params
+      byebug
       params[:trucker][:vehicle_attributes] = [params[:trucker][:vehicle]]
       params.require(:trucker).delete :vehicle
-      params.require(:trucker).permit(:name, :phone, vehicle_attributes: [:body_type, :type,:board])
+      params.require(:trucker).permit(:name, :phone, vehicle_attributes: [:body_type, :type])
     end
 end

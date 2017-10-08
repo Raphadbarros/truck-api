@@ -328,24 +328,26 @@
       <pre class="lines">
 
 
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
 37
-38</pre>
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/truckers_controller.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/truckers_controller.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span>
+  <span class='id identifier rubyid_byebug'>byebug</span>
   <span class='ivar'>@trucker</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Trucker.html" title="Trucker (class)">Trucker</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_trucker_params'>trucker_params</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_respond_to'>respond_to</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_format'>format</span><span class='op'>|</span>
@@ -389,16 +391,16 @@
       <pre class="lines">
 
 
-56
-57
-58
-59
-60
-61
-62</pre>
+68
+69
+70
+71
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/truckers_controller.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/truckers_controller.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span>
   <span class='ivar'>@trucker</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span>
@@ -438,11 +440,11 @@
       <pre class="lines">
 
 
-21
-22</pre>
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/truckers_controller.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/truckers_controller.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_edit'>edit</span>
 <span class='kw'>end</span></pre>
@@ -479,13 +481,31 @@
 
 6
 7
-8</pre>
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/truckers_controller.rb', line 6</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_index'>index</span>
   <span class='ivar'>@truckers</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Trucker.html" title="Trucker (class)">Trucker</a></span></span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span>
+  
+  <span class='comment'>#teste = {trucker: {name: &quot;Lincoln Falcão&quot;, phone: &quot;(11) 97654-3210&quot;, vehicles_attributes: [{body_type: &quot;Baú&quot;, type: &quot;Truck&quot;}]}}
+</span> <span class='comment'># byebug
+</span> <span class='comment'># puts teste
+</span>  <span class='comment'>#@trucker = Trucker.new(teste[:trucker])
+</span>  <span class='comment'>#@trucker.save
+</span>  <span class='comment'>#@truckers = Trucker.all
+</span>  <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='ivar'>@truckers</span><span class='comma'>,</span> <span class='label'>adapter:</span> <span class='symbol'>:json</span>
+
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -518,12 +538,12 @@
       <pre class="lines">
 
 
-16
-17
-18</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/truckers_controller.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/truckers_controller.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new'>new</span>
   <span class='ivar'>@trucker</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Trucker.html" title="Trucker (class)">Trucker</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -559,13 +579,17 @@
       <pre class="lines">
 
 
-12
-13</pre>
+21
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/truckers_controller.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/truckers_controller.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_show'>show</span>
+  <span class='ivar'>@trucker</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Trucker.html" title="Trucker (class)">Trucker</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='ivar'>@trucker</span><span class='comma'>,</span> <span class='label'>adapter:</span> <span class='symbol'>:json</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -598,20 +622,20 @@
       <pre class="lines">
 
 
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52</pre>
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/truckers_controller.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/truckers_controller.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
   <span class='id identifier rubyid_respond_to'>respond_to</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_format'>format</span><span class='op'>|</span>
@@ -634,7 +658,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Oct  7 22:10:07 2017 by
+  Generated on Sun Oct  8 10:26:29 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.1).
 </div>

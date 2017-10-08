@@ -3,7 +3,7 @@ class CreateShipments < ActiveRecord::Migration[5.1]
     create_table :shipments do |t|
       t.float :value
       t.float :weight_kg
-
+   
       t.timestamps
     end
   end

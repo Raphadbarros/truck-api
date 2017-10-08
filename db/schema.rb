@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171008011822) do
-
-  create_table "addresses", force: :cascade do |t|
-    t.string "city"
-    t.string "state"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20171008224557) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -28,15 +21,33 @@ ActiveRecord::Schema.define(version: 20171008011822) do
     t.index ["shipment_id"], name: "index_contacts_on_shipment_id"
   end
 
-  create_table "routes", force: :cascade do |t|
-    t.integer "origin_id"
-    t.integer "destination_id"
-    t.datetime "load_at"
-    t.datetime "delivered_at"
+  create_table "destinations", force: :cascade do |t|
+    t.string "city"
+    t.string "state"
+    t.datetime "deliver_at"
     t.integer "shipment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["shipment_id"], name: "index_routes_on_shipment_id"
+    t.index ["shipment_id"], name: "index_destinations_on_shipment_id"
+  end
+
+  create_table "origins", force: :cascade do |t|
+    t.string "city"
+    t.string "state"
+    t.datetime "load_at"
+    t.integer "shipment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shipment_id"], name: "index_origins_on_shipment_id"
+  end
+
+  create_table "shipment_vehicles", force: :cascade do |t|
+    t.string "type"
+    t.string "body_type"
+    t.integer "shipment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shipment_id"], name: "index_shipment_vehicles_on_shipment_id"
   end
 
   create_table "shipments", force: :cascade do |t|
