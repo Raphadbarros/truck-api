@@ -28,13 +28,13 @@ Projeto voltado para atender rotas Pré-Definidas
 
 # Documentação da API
 ---
-##### Baixe as coleções já prontas para uso aqui: [http://www.qualquer.coisa]. Importe as coleções no PostMan[http://tsdn.tecnospeed.com.br/blog-da-consultoria-tecnica-tecnospeed/post/como-importar-requisicoes-http-para-o-postman]
+##### Baixe as coleções já prontas para uso aqui: ![Coleções](Truck_api.postman_collection.json). Importe as coleções no **Postman**, siga o tutorial: ![Como Importar Coleções](http://tsdn.tecnospeed.com.br/blog-da-consultoria-tecnica-tecnospeed/post/como-importar-requisicoes-http-para-o-postman)
 ---
+
 ## Criar pedido de carga
 #### **POST /api/shipments** 
 
 * ###### HTTP/1.1 201 Created
-> 
 ```json
     {
         "shipment": {
@@ -63,6 +63,8 @@ Projeto voltado para atender rotas Pré-Definidas
     "url": "http://localhost:3000/api/shipments/1"
     }
 ```
+
+---
 ### **Visualizar pedido de carga**
 #### GET /api/shipments/1  
 **informar número do pedido na url**
@@ -84,8 +86,7 @@ Projeto voltado para atender rotas Pré-Definidas
             "destination": { "city": "Goiânia", "state": "GO", "deliver_at": "2017-09-29" },
         }
 ```
-
-
+---
 ### **Cadastrar Caminhoneiro**
 #### POST /api/truckers   
 **Informe os dados do caminhoneiro na body do Post**
@@ -103,6 +104,7 @@ Projeto voltado para atender rotas Pré-Definidas
     }
 ```
 
+---
 ### **Alterar última localização de caminhoneiro**
 #### PUT /api/truckers/1/last_location 
 **Informe os dados da ultima atualização no body do envio**
@@ -114,8 +116,8 @@ Projeto voltado para atender rotas Pré-Definidas
                     }   
     }
 ```
-
-### ** Localizar Caminhoneiro por perto **
+---
+### **Localizar Caminhoneiro por perto**
 #### GET /api/shipments/1/nearby_truckers
 **Informe o ID do pedido**
 
@@ -134,8 +136,10 @@ Projeto voltado para atender rotas Pré-Definidas
         }
     }
 ```
+
 ----
 ### Entidades e Relacionamentos
 ![Diagram](database_diagram.jpg)
+
 
 
