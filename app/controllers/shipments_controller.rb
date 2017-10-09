@@ -32,7 +32,7 @@ class ShipmentsController < ApplicationController
   def create
     @shipment = Shipment.new(shipment_params)
       if @shipment.save
-        format.json  render :show, status: :created, location: @shipment 
+         render :show, status: :created, location: @shipment 
       else
          render json: ({errors: @shipment.errors}), status: :unprocessable_entity 
       end

@@ -25,7 +25,7 @@ class TruckersController < ApplicationController
       if @trucker.save
         render :show, status: :created, location: @trucker 
       else
-        format.json { render json: @trucker.errors, status: :unprocessable_entity }
+        render json: @trucker.errors, status: :unprocessable_entity 
       end
   end
 
