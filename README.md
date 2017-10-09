@@ -28,7 +28,7 @@ Projeto voltado para atender rotas Pré-Definidas
 
 # Documentação da API
 ---
-##### Baixe as coleções já prontas para uso aqui: [Coleções](https://raw.githubusercontent.com/downloads/vspessoa/truck-api/master/Truck_api.postman_collection.json). Importe as coleções no **Postman**, siga o tutorial: [Como Importar Coleções](http://tsdn.tecnospeed.com.br/blog-da-consultoria-tecnica-tecnospeed/post/como-importar-requisicoes-http-para-o-postman)
+##### Baixe as coleções já prontas para uso aqui: [Coleções](https://raw.githubusercontent.com/vspessoa/truck-api/master/Truck_api.postman_collection.json). Importe as coleções no **Postman**, siga o tutorial: [Como Importar Coleções](http://tsdn.tecnospeed.com.br/blog-da-consultoria-tecnica-tecnospeed/post/como-importar-requisicoes-http-para-o-postman)
 ---
 
 ## Criar pedido de carga
