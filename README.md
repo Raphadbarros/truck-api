@@ -11,7 +11,7 @@ Projeto voltado para atender rotas Pré-Definidas
 
 ## Ambiente de Desenvolvimento
 *   Clone este repositorio
-*   Siga o tutorial de instalação do Ruby on Rails em: [http://rubyonrails.org/]
+*   Siga o tutorial de instalação do Ruby on Rails em: http://rubyonrails.org/
 *   Execute os comandos abaixo dentro do diretório do projeto
  * `bundle install`
  * `rake db:create`
@@ -20,7 +20,7 @@ Projeto voltado para atender rotas Pré-Definidas
 * O Projeto estara disponivel em `http://localhost:3000`
 * 
 
-## Configuraçes do ambiente
+## Configurações do ambiente
 * Ruby version: 2.3.1
 * Rails version: 5.1.4
 * Banco de dados: SQlite
@@ -28,7 +28,7 @@ Projeto voltado para atender rotas Pré-Definidas
 
 # Documentação da API
 ---
-##### Baixe as coleções já prontas para uso aqui: ![Coleções](Truck_api.postman_collection.json). Importe as coleções no **Postman**, siga o tutorial: ![Como Importar Coleções](http://tsdn.tecnospeed.com.br/blog-da-consultoria-tecnica-tecnospeed/post/como-importar-requisicoes-http-para-o-postman)
+##### Baixe as coleções já prontas para uso aqui: [Coleções](https://raw.githubusercontent.com/downloads/vspessoa/truck-api/master/Truck_api.postman_collection.json). Importe as coleções no **Postman**, siga o tutorial: [Como Importar Coleções](http://tsdn.tecnospeed.com.br/blog-da-consultoria-tecnica-tecnospeed/post/como-importar-requisicoes-http-para-o-postman)
 ---
 
 ## Criar pedido de carga
