@@ -8,23 +8,32 @@ Projeto voltado para atender rotas Pré-Definidas
 * Para as rotas de POST e PUT, efetue verificação de obrigatoriedade e formato dos dados e retorne uma resposta JSON apropriada com detalhes de falhas de preenchimento, retornando HTTP Code 422;
 * Criar a modelagem de banco de dados necessária para suportar  as informações de todos os endpoints;
 * Criar testes funcionais automatizados para validar o funcionamento dos serviços criados. Utilize o framework de testes de sua preferência.
-## Entrega:
----
-* O formato de dado trafegado deve ser JSON;
-* O projeto deve conter um arquivo README explicando como o mesmo funciona e explicando como fazer para rodar a aplicação.
----
-## Referências:
-* Ruby on Rails: <http://rubyonrails.org/>
-* HTTP Codes: <https://pt.wikipedia.org/wiki/Lista_de_c%C3%B3digos_de_estado_HTTP>
-* JSON: <http://json.org/>
----
-# Rotas API
 
-### POST /api/shipments 
-* #####  POST /api/shipments HTTP/1.1
-* #####  Content-Type: application/json; charset="utf-8"
-* ##### Location: /api/shipments/1
-* ##### HTTP/1.1 201 Created
+## Ambiente de Desenvolvimento
+*   Clone este repositorio
+*   Siga o tutorial de instalação do Ruby on Rails em: [http://rubyonrails.org/]
+*   Execute os comandos abaixo dentro do diretório do projeto
+ * `bundle install`
+ * `rake db:create`
+ * `rake db:migrate`
+* Suba o servidor rails rodando o comando  `rails s -b 0.0.0.0`
+* O Projeto estara disponivel em `http://localhost:3000`
+* 
+
+## Configuraçes do ambiente
+* Ruby version: 2.3.1
+* Rails version: 5.1.4
+* Banco de dados: SQlite
+
+
+# Documentação da API
+---
+##### Baixe as coleções já prontas para uso aqui: [http://www.qualquer.coisa]. Importe as coleções no PostMan[http://tsdn.tecnospeed.com.br/blog-da-consultoria-tecnica-tecnospeed/post/como-importar-requisicoes-http-para-o-postman]
+---
+## Criar pedido de carga
+#### **POST /api/shipments** 
+
+* ###### HTTP/1.1 201 Created
 > 
 ```json
     {
@@ -39,14 +48,24 @@ Projeto voltado para atender rotas Pré-Definidas
                 { "type": "Truck", "body_type": "Sider" }
             ],
             "origin": { "city": "São Paulo", "state": "SP", "load_at": "2017-09-25" },
-            "destination": { "city": "Goiânia", "state": "GO", "deliver_at": "2017-09-29" },
+            "destination": { "city": "Goiânia", "state": "GO", "deliver_at": "2017-09-29" }
         }
+    }
 ```
-
-### GET /api/shipments/1  
-* #####  GET /api/shipments/1 HTTP/1.1
-* #####  Content-Type: application/json; charset="utf-8"
-* ##### HTTP/1.1 200 OK
+**Aguarde o retorno do código 201 com a mensagem**:
+```json
+    {
+    "id": 1,
+    "value": 1500,
+    "weight_kg": 2000,
+    "created_at": "2017-10-09T02:34:55.819Z",
+    "updated_at": "2017-10-09T02:34:55.819Z",
+    "url": "http://localhost:3000/api/shipments/1"
+    }
+```
+### **Visualizar pedido de carga**
+#### GET /api/shipments/1  
+**informar número do pedido na url**
 > 
 ```json
     {
@@ -66,11 +85,10 @@ Projeto voltado para atender rotas Pré-Definidas
         }
 ```
 
-### POST /api/truckers
-* #####  POST /api/truckers HTTP/1.1
-* #####  Content-Type: application/json; charset="utf-8"
-* ##### Location: /api/truckers/1
-* ##### HTTP/1.1 201 Created
+
+### **Cadastrar Caminhoneiro**
+#### POST /api/truckers   
+**Informe os dados do caminhoneiro na body do Post**
 > 
 ```json
     {
@@ -78,27 +96,18 @@ Projeto voltado para atender rotas Pré-Definidas
             "name": "Lincoln Falcão",
             "phone": "(11) 97654-3210",
             "vehicle": {
-                "type": "Truck", "body_type": "Baú"
+                "type": "Truck", 
+                "body_type": "Baú"
             }
         }
+    }
 ```
 
-
-
-
-
-
-
-
-
-
-### PUT /api/truckers/1/last_location
-* #####  POST /api/truckers HTTP/1.1
-* #####  Content-Type: application/json; charset="utf-8"
-* ##### HTTP 204 No Content
-> 
+### **Alterar última localização de caminhoneiro**
+#### PUT /api/truckers/1/last_location 
+**Informe os dados da ultima atualização no body do envio**
 ```json
-    {
+      {
         "location": {
             "city": "São Paulo",
             "state": "SP"
@@ -106,28 +115,27 @@ Projeto voltado para atender rotas Pré-Definidas
     }
 ```
 
+### ** Localizar Caminhoneiro por perto **
+#### GET /api/shipments/1/nearby_truckers
+**Informe o ID do pedido**
 
-
-### GET /api/shipments/1/nearby_truckers
-* #####  GET /api/shipments/1/nearby_truckers HTTP/1.1
-* #####  Content-Type: application/json; charset="utf-8"
-* ##### HTTP 200 OK
-> 
 ```json
     {
-        "truckers": [
-            {
-                "id": 1,
-                "name": "Lincoln Falcão",
-                "phone": "(11) 97654-3210",
-                "vehicle": {
-                    "type": "Truck", "body_type": "Baú"
+        "trucker": {
+            "id": 1,
+            "name": "Lincoln Falcão",
+            "phone": "(11) 97654-3210",
+            "vehicle": [
+                {
+                    "type": "Truck",
+                    "body_type": "Baú"
                 }
-            }
-        ]
+            ]
+        }
     }
 ```
-
-
+----
+### Entidades e Relacionamentos
+![Diagram](database_diagram.jpg)
 
 
